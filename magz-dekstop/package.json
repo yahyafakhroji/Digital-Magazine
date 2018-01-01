@@ -1,0 +1,41 @@
+{
+    "name": "ininama-magz",
+    "version": "1.0.0",
+    "description": "Ininama Magz 2017",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron main.js",
+        "package-mac": "electron-packager . ininama-magz --overwrite --platform=darwin --arch=x64 --icon=assets/images/appicon.icns --prune=true --out=release-builds",
+        "package-win": "electron-packager . ininama-magz --asar=true --overwrite  --platform=win32 --arch=all --icon=assets/images/appicon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Ininama Magz\"",
+        "package-linux": "electron-packager . ininama-magz --asar=true  --overwrite  --platform=linux --arch=x64 --icon=assets/images/appicon.png --prune=true --out=release-builds",
+        "pack": "build --dir",
+        "dist": "build"
+    },
+    "build": {
+        "linux": {
+            "target": [
+                "AppImage",
+                "deb"
+            ]
+        },
+        "win": {
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64",
+                        "ia32"
+                    ]
+                }
+            ]
+        }
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {},
+    "devDependencies": {
+        "electron": "^1.7.10",
+        "electron-builder": "^19.49.4",
+        "electron-packager": "^10.1.0"
+    }
+}
